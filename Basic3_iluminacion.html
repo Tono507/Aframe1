@@ -17,19 +17,36 @@
 
         
       <a-entity id="objects" scale="0.3 0.3 0.3" position="0 0.8 0">
+        <!-- Por que no me deja de hacer nada de esto grabbable??? -->
         <a-box position="-0.5 0.5 -1.5" rotation="0 45 0" color="#4CC3D9"
             depth="0.5" height="0.5" width="0.5"></a-box>
         <a-sphere position="0 0.5 -1.5" radius="0.25" color="#EF2D5E"></a-sphere>
         <a-cylinder position="0.5 0.25 -1.5" radius="0.25" height="0.5" color="#FFC65D"></a-cylinder>
-        <!--nos permite movernos -->
-        <a-entity movement-controls="fly: true">  
-          <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+      </a-entity>  
+
+
+      <!--nos permite movernos
+      DATO si metes algo dentro de este entity, las cosas se mueven con el, como las manos -->
+      <a-entity movement-controls="fly: true">  
+        <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+          <!-- esto es para poder poner los "guantes" a las manos-->
+        <a-entity id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
+        <a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
+        <!-- en hora buena, te has puesto la skin de una pelota roja!-->
+        <a-sphere position="0 0 0" radius="0.2" color="#EF2D5E"></a-sphere>
+        <!-- en hora buena, has creado una linterna de cabeza!-->
+        <a-light id="real-light" type="directional"
+          position="0 0 0" intensity="1"></a-light>
       </a-entity>
+
+
+      
+      
       <!-- esto es para la luz -->
       <a-light id="real-light" type="directional"
-          position="1 1 1" intensity="0.5"></a-light>
-      <!-- en que posicion empieza la camara -->
-      <a-camera position="0 0.4 0"></a-camera>
+          position="1 1 1" intensity="1"></a-light>
+      <!-- en que posicion anclamos la camara -->
+      <!--<a-camera position="0 0.4 0"></a-camera>-->
     </a-scene>
   </body>
 </html>
