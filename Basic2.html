@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <!--Libreria de formas? -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!--Libreria para movernos con los joysticks -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <!--esto es para poder ver la escena en realidad aumentada -->
+    <a-scene xr-mode-ui="XRMode: xr">
+      <a-box position="-0.5 0.5 1.5" rotation="0 45 0" color="#4CC3D9"
+          depth="0.5" height="0.5" width="0.5"></a-box>
+      <a-sphere position="0 0.5 1.5" radius="0.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="0.5 0.25 1.5" radius="0.25" height="0.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 1" rotation="-90 0 0" width="2" height="2" color="#7BC8A4"></a-plane>
+      <!--color del cielo -->
+      <a-sky hide-on-enter-ar color="#FF0000"></a-sky>
+      <!--nos permite movernos -->
+      <a-entity movement-controls="fly: true">  
+        <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <!--Libreria de formas? -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!--Libreria para movernos con los joysticks -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <!-- esto es para poder ver la escena en realidad aumentada -->
+    <!-- Lo de mas abajo no recuerdo para que era -->
+    <a-scene xr-mode-ui="XRMode: xr"
+        
+        webxr="optionalFeatures: hit-test, local-floor"
+        ar-hit-test="target:#objects"
+        reflection="directionalLight:#real-light"
+        renderer="physicallyCorrectLights:true; colorManagement:true; exposure:1; toneMapping:ACESFilmic;">
+
+        
+      <a-entity id="objects" scale="0.3 0.3 0.3" position="0 0.8 0">
+        <a-box position="-0.5 0.5 -1.5" rotation="0 45 0" color="#4CC3D9"
+            depth="0.5" height="0.5" width="0.5"></a-box>
+        <a-sphere position="0 0.5 -1.5" radius="0.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="0.5 0.25 -1.5" radius="0.25" height="0.5" color="#FFC65D"></a-cylinder>
+        <!--nos permite movernos -->
+        <a-entity movement-controls="fly: true">  
+          <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+      </a-entity>
+      <!-- esto es para la luz -->
+      <a-light id="real-light" type="directional"
+          position="1 1 1" intensity="0.5"></a-light>
+      <!-- en que posicion empieza la camara -->
+      <a-camera position="0 0.4 0"></a-camera>
+    </a-scene>
+  </body>
+</html>
