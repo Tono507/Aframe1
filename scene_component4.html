@@ -1,0 +1,35 @@
+<html>
+  <!-- Handler for an event -->
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="component5.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC">
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
+          animation="startEvents: click; property: position;
+              from: -1 1.5 -3; to: -1 0.5 -3; dur: 1000"
+          hello="event: click; message: Clicked!">
+      </a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
+          animation="startEvents: click; property: scale;
+              from: 2 2 2; to: 1 1 1; dur: 1000"
+          hello="message: Hola">
+      </a-sphere>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+      <a-entity cursor="rayOrigin:mouse"></a-entity>
+    </a-scene>
+  </body>
+</html>
+
+<!-- update se usa cuando se actualiza la imagen por algo
+     tick se usa para los cambios por pada frame
+     remove se usa para quitar un componente de la escena
+     pause que se usa cuando se pausa la escena
+     play se usa cuando tras un pause se pone en marcha la escena de nuevo 
+    el ispector se hace con control + i
+    meter a hija en vr
+    biblioteca 1 planta despacho 103 martes y jueves de 4 a 6, haremos pruebas en el 102 
+    avisar al correo david.morenolu@urjc.es
+                     sergio.montes@urjc.es-->
