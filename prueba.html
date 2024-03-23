@@ -1,0 +1,24 @@
+<a-scene>
+    <!-- Configuración del sistema de físicas -->
+    <a-entity physics="gravity: -9.8"></a-entity>
+  
+    <!-- Objeto móvil -->
+    <a-box id="objeto1" position="-1 1.5 -5" color="red" dynamic-body></a-box>
+    
+    <!-- Objeto estático -->
+    <a-box id="objeto2" position="1 1.5 -5" color="blue" static-body></a-box>
+  
+    <!-- Event listener para physicscollided -->
+    <a-entity id="collider" physics-collider></a-entity>
+  
+    <script>
+      // Agregamos un listener para el evento 'physicscollided' en el collider
+      document.querySelector('#collider').addEventListener('physicscollided', function (event) {
+        // Verificamos si el objeto 1 colisiona con el objeto 2
+        if (event.detail.collisions.some(collision => collision.body.el.id === 'objeto2')) {
+          // Desaparecemos el objeto 1
+          document.querySelector('#objeto1').setAttribute('visible', false);
+        }
+      });
+    </script>
+  </a-scene>

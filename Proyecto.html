@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.0/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+  <a-scene
+  webxr="optionalFeatures: hit-test, local-floor"
+  ar-hit-test="target:#escenary,#knight"
+  reflection="directionalLight:#real-light"
+  renderer="physicallyCorrectLights:true; colorManagement:true; exposure:1; toneMapping:ACESFilmic;">>
+    
+
+    <!-- Controladores de realidad virtual -->
+    <a-entity laser-controls="hand: right" visible = "false"></a-entity>
+    <a-entity laser-controls="hand: left" visible = "false"></a-entity>
+
+    <!-- Aqui declaramos objetos y les damos una id para referirnos -->
+    <a-assets>
+      <a-asset-item id="axe-right" src="axe_modify.glb" ></a-asset-item>
+      <a-asset-item id="axe-left" src="axe_modify.glb" ></a-asset-item>
+      <a-asset-item id="escenary" src="corral_nou.glb" ></a-asset-item>
+      <a-asset-item id="knight" src="rigged_for_ue4_-_saxon_-_free.glb" ></a-asset-item>
+    </a-assets>
+
+    <!-- Aqui modificamos propiedades de los objetos refiriendonos con la id-->
+    <a-entity gltf-model="#axe-right" tracked-controls="hand: right" dynamic-body></a-entity>
+    <a-entity gltf-model="#axe-left" tracked-controls="hand: left" dynamic-body></a-entity>
+    <a-entity gltf-model="#escenary" position = "12.5 0 -3" static-body></a-entity>
+    <a-entity gltf-model="#knight" position = "-4 -0.55 7" rotation ="0 150 0" dynamic-body
+    animation="startEvents: loaded; property: position;
+              to: 0 0 0;loop:true; dur : 7000"></a-entity>
+    <a-entity gltf-model="#knight" position = "-4.3 0.42 0.39" rotation ="0 90 0" dynamic-body
+    animation="startEvents: loaded; property: position;
+              to: 0 0 0;loop:true; dur : 10000"></a-entity>
+    <a-entity gltf-model="#knight" position = "-2.42 2.025 -5.68" rotation ="0 20 0" dynamic-body
+    animation="startEvents: loaded; property: position;
+              to: 0 0 0;loop:true; dur : 8000"></a-entity>
+
+
+    <!-- Luz direccional -->
+    <a-light type="directional" color="#FFF" intensity="1" position="-1 1 0"></a-light>
+    <a-light type="directional" color="#FFF" intensity="1" position="0 3 0"></a-light>
+    
+    <!-- Cámara -->
+    <a-camera user-height="1.6" universal-controls ></a-camera>
+
+    <!-- Cielo -->
+    <a-sky src="mountains.jpg"></a-sky>
+
+
+
+  </a-scene>
+</body>
+</html>
